@@ -5,4 +5,4 @@ moodlebox_username_files:
   - /etc/group
   - /etc/shadow
   - /etc/gshadow
-  - /etc/systemd/system/autologin@.service
+  # - /etc/systemd/system/autologin@.service

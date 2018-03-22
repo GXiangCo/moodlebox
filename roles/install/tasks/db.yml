@@ -63,5 +63,5 @@
 
 - name: restart MariaDB database
   service:
-    name: 'mariadb'
+    name: 'mysql'
     state: 'restarted'

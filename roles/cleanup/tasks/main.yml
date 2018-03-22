@@ -66,7 +66,7 @@
     port: 22
     state: 'started'
     delay: 10
-    timeout: 60
+    timeout: 90
 
 - name: remove ssh public keys
   file:

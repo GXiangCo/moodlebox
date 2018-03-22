@@ -12,6 +12,7 @@
         - config.yml
 
   roles:
+    - bpi
     - bootstrap
     - install
     - network

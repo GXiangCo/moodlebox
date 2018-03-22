@@ -1,7 +1,7 @@
 ---
 # MoodleBox version and release date.
-moodlebox_version: '2.2.0-beta'
-moodlebox_release_date: '2018-02-18'
+moodlebox_version: '2.2.0'
+moodlebox_release_date: '2018-03-02'
 moodlebox_name: 'MoodleBox'
 
 # MoodleBox hostname (taken from inventory).
@@ -9,7 +9,7 @@ moodlebox_hostname: '{{ inventory_hostname }}'
 
 # MoodleBox top level domain name.
 # URL of MoodleBox is {{ moodlebox_hostname }}.{{ moodlebox_tld }}.
-moodlebox_tld: 'home'
+moodlebox_tld: 'bpi'
 
 # MoodleBox main credentials.
 moodlebox_username: 'moodlebox'
@@ -39,18 +39,17 @@ moodlebox_db_root_password: '{{ moodlebox_password }}'
 # MoodleBox Wi-Fi settings.
 moodlebox_wifi_password: '{{ moodlebox_hostname }}'
 moodlebox_wifi_ssid: '{{ moodlebox_name }}'
-moodlebox_wifi_channel: '13'
-moodlebox_wifi_country: 'CH'
+moodlebox_wifi_channel: '11'
+moodlebox_wifi_country: 'TW'
 
 # MoodleBox localisation parameters.
-moodlebox_default_locale: 'en_GB.UTF-8'
+moodlebox_default_locale: 'en_US.UTF-8'
 moodlebox_locales:
-  - 'en_GB.UTF-8'
+  - 'en_US.UTF-8'
+  - 'zh_TW.UTF-8'
   - 'fr_FR.UTF-8'
   - 'de_DE.UTF-8'
-  - 'es_ES.UTF-8'
-  - 'it_IT.UTF-8'
-moodlebox_timezone: 'Europe/Paris'
+moodlebox_timezone: 'Asia/Taipei'
 
 # Public key filename.
 moodlebox_public_key_file: 'id_rsa.pub'
@@ -79,7 +78,9 @@ moodlebox_moodlebox_plugin_unstable: false
 
 # Raspberry default credentials.
 moodlebox_rpi_username: 'pi'
-moodlebox_rpi_password: 'raspberry'
+moodlebox_rpi_password: 'bananapi'
 
 # Raspberry default hostname.
-moodlebox_rpi_hostname: 'raspberrypi'
+moodlebox_rpi_hostname: 'bpi-iot-ros-ai'
+
+moodlebox_resize2fs: true

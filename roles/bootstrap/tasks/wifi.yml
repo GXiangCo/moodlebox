@@ -1,8 +1,15 @@
 ---
 
-- name: set wifi country
-  lineinfile:
-    path: '/etc/wpa_supplicant/wpa_supplicant.conf'
-    regexp: '^country='
-    line: 'country={{ moodlebox_wifi_country }}'
+# - name: set wifi country
+#   lineinfile:
+#     path: '/etc/wpa_supplicant/wpa_supplicant.conf'
+#     regexp: '^country='
+#     line: 'country={{ moodlebox_wifi_country }}'
+#   notify: restart networking
+
+- name: write wpa_supplicant file
+  template:
+    src: 'etc/wpa_supplicant.j2'
+    dest: '/etc/wpa_supplicant/wpa_supplicant.conf'
+    mode: 0600
   notify: restart networking

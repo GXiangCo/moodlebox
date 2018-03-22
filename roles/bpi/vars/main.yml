@@ -1,0 +1,13 @@
+moodlebox_uninstall_packages:
+  - libmate-*
+  - libmate*
+  - mate-*
+  - x11-* 
+  - lightdm  
+  - libx11-* 
+  - x11proto-*
+  - plymouth-theme-ubuntu-mate-text
+  - ubuntu-mate-wallpapers
+  - ubuntu-mate-wallpapers-common
+  - ubuntu-mate-wallpapers-xenial
+  

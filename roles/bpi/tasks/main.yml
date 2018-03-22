@@ -1,0 +1,79 @@
+---
+
+- name: stop NetworkManager
+  systemd:
+    name: NetworkManager
+    state: stopped
+
+- name: disable NetworkManager
+  systemd:
+    name: NetworkManager
+    enabled: no
+    masked: yes
+
+- name: configure /etc/network/interfaces
+  blockinfile:
+    path: '/etc/network/interfaces'
+    block: |
+      auto eth0
+      iface eth0 inet dhcp
+
+- name: disable accounts-daemon.service
+  systemd:
+    name: accounts-daemon
+    enabled: no
+    masked: no
+
+- name: disable ModemManager.service
+  systemd:
+    name: ModemManager
+    enabled: no
+    masked: no
+
+- name: disable pppd-dns.service
+  systemd:
+    name: pppd-dns
+    enabled: no
+    masked: no
+
+- name: update /var/lib/bananapi/bpi-init.d/S10-bpi-hw-wifi.sh
+  template:
+    src: 'S10-bpi-hw-wifi.sh.j2'
+    dest: '/var/lib/bananapi/bpi-init.d/S10-bpi-hw-wifi.sh'
+
+- name: uninstall unneeded packages
+  apt:
+    pkg: '{{ item }}'
+    state: 'absent'
+    purge: 'yes'
+  with_flattened:
+    - '{{ moodlebox_uninstall_packages }}'
+  when: 'moodlebox_uninstall_packages is defined'
+
+- name: fdisk /dev/mmcblk0 partition
+  shell: echo -e "p\nd\n2\nn\np\n2\n729088\n\nw" | sudo fdisk /dev/mmcblk0
+  args:
+    executable: /bin/bash
+  ignore_errors: yes
+  when: moodlebox_resize2fs
+
+- name: reboot machine
+  shell: 'sleep 2 && shutdown -r now'
+  async: 1
+  poll: 0
+  ignore_errors: true
+
+- name: wait for machine to come back
+  become: false
+  local_action: wait_for
+  args:
+    host: '{{ ansible_host | default(inventory_hostname) }}'
+    port: 22
+    state: 'started'
+    delay: 10
+    timeout: 90
+
+- name: "resize filesystem"
+  command: resize2fs /dev/mmcblk0p2
+  sudo: true
+  when: moodlebox_resize2fs

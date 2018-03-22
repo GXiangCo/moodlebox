@@ -1,5 +1,10 @@
 ---
 
+- name: configure /etc/network/interfaces
+  template:
+    src: 'etc/network/interfaces.j2'
+    dest: '/etc/network/interfaces'
+    
 - name: configure dhcpcd
   blockinfile:
     path: '/etc/dhcpcd.conf'
