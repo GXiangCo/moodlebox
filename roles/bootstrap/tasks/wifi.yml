@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 # - name: set wifi country
 #   lineinfile:
 #     path: '/etc/wpa_supplicant/wpa_supplicant.conf'
@@ -13,3 +14,15 @@
     dest: '/etc/wpa_supplicant/wpa_supplicant.conf'
     mode: 0600
   notify: restart networking
+=======
+- name: set wifi country
+  lineinfile:
+    path: '/etc/wpa_supplicant/wpa_supplicant.conf'
+    regexp: '^country='
+    line: 'country={{ moodlebox_wifi_country }}'
+  notify: restart networking
+
+- name: unblock wifi
+  command: 'rfkill unblock wifi'
+  notify: restart networking
+>>>>>>> 709b33ad685a4046f787aed95da5f0d8c04a66a2

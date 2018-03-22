@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and follow principles of [keep a changelog](http://keepachangelog.com).
 
+<<<<<<< HEAD
+=======
+## Verson 2.3.0, 2018-03-31
+### Changed
+- Based on Raspbian Stretch Lite version of 2018-03-13 (issue #63).
+- Updated to Moodle 3.4.2 (issue #64).
+- Arbitrary chars in SSIDs now supported (issues https://github.com/moodlebox/moodle-tool_moodlebox/issues/31 and https://github.com/moodlebox/moodle-tool_moodlebox/issues/38).
+
+### Added
+- Support Raspberry Pi 3 B+ (issue #65).
+
+### Fixed
+- Nothing.
+
+>>>>>>> 709b33ad685a4046f787aed95da5f0d8c04a66a2
 ## Version 2.2.0, 2018-03-02
 ### Changed
 - Updated to Moodle 3.4.1 (issue #54).
@@ -74,7 +89,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and follow pri
 
 ### Changed
 - Based on Raspbian Stretch Lite version of 2017-09-07.
-- Uses last released version of the [MoodleBox plugin](https://github.com/martignoni/moodlebox-plugin) for Moodle (new Wi-Fi settings options available).
+- Uses last released version of the [MoodleBox plugin](https://github.com/moodlebox/moodle-tool_moodlebox) for Moodle (new Wi-Fi settings options available).
 - Re-enable predictable network interface name, which is now disabled in Stretch image.
 
 ## Version 1.9.2, 2017-09-05

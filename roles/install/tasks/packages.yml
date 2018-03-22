@@ -28,6 +28,19 @@
 
 - name: install usbmount deb package
   apt:
+<<<<<<< HEAD
+=======
+    pkg: 'phpmyadmin'
+    state: 'present'
+
+- name: copy usbmount deb package
+  copy:
+    src: 'usbmount_0.0.24_all.deb'
+    dest: '/tmp/usbmount_0.0.24_all.deb'
+
+- name: install usbmount deb package
+  apt:
+>>>>>>> 709b33ad685a4046f787aed95da5f0d8c04a66a2
     deb: '/tmp/usbmount_0.0.24_all.deb'
 
 - name: remove usbmount deb package
